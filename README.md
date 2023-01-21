@@ -1,39 +1,69 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+Package provides Widget with background mask.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+## Example usage
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+![](https://github.com/BartoszStasiurka/focus_mask/blob/main/misc/circle.png?raw=true)
+![](https://github.com/BartoszStasiurka/focus_mask/blob/main/misc/square.png?raw=true)
+![](https://github.com/BartoszStasiurka/focus_mask/blob/main/misc/rectangle.png?raw=true)
+![](https://github.com/BartoszStasiurka/focus_mask/blob/main/misc/offset.png?raw=true)
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add package to your pubspec.yaml and ```import 'package:focus_mask/focus_mask.dart';```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+### Circle mask
 ```dart
-const like = 'sample';
+FocusMask.circle(
+    point: Offset(100, 100),
+    radius: 50,
+);
+```
+### Sqare mask
+```dart
+FocusMask.square(
+          point: Offset(100, 100),
+          size: slider * 3,
+        );
 ```
 
-## Additional information
+### Rectangle mask
+```dart
+FocusMask.rectangle(
+    point: Offset(100, 100),
+    width: 50,
+    height: 50,
+);
+```
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+### Offset mask
+```dart
+FocusMask.offset(
+    offset: EdgeInsets.symmetric(
+    vertical: 50,
+    horizontal: 50,
+    ),
+);
+```
+
+
+## Contribition
+
+FocusMask widget using CustomPainter, so you can write your own:
+
+```dart
+FocusMask(
+      painter: HERE_YOUR_CUSTOM_PAINTER,
+    );
+```
+
+For example, ```FocusMask.circle()``` is the same as:
+```dart
+FocusMask(
+      painter: FocusMaskCirclePainter(point: point, radius: radius, color: color)
+    );
+```
+
+Feel free to contribute. 
